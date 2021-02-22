@@ -1,25 +1,28 @@
 ### Assignment: Regex and Files
-##Name:
+##Name: K.King
 ##Date: 
 
 #don't forget to import regex
-
+import re
 
 ##(/5) Task 1: MODIFY the code below.
 #A# Change the regex from .* to what is required to capture an email address
 #B# Add a condition so that no blanks are printed.
 #C# Count the number of email addresses found and print a final output line.
 
+count = 0 
 def reEmail(fname):
-  
+  global count
   fhand = open(fname,'r')
   for line in fhand:
-    extr = re.findall('.*',line)
+    extr = re.findall("^^.*@e|gd|od|v\.pe\.ca",line)
     if len(extr): 
       print(extr)
-        
+      count +=1
+        #"^.*@edu\.pe\.ca"
+  print("There were ", count, "email adresses found.")
 
-  print()
+reEmail("rural-staff.txt")
     
 
 '''### Task 1 Results for 
@@ -37,9 +40,11 @@ There were 89 email addresses in rural-staff.txt
 def reAward(fname):
   fhand = open(fname, 'r')
   for line in fhand:
-    extr = re.findall('.*', line)
+    extr = re.findall('- (.*)', line)
     if len(extr):
       print(extr)
+
+reAward("rural-athletics.txt")
 
 '''### Task 2 Results for
 >reAward('rural-athletics.txt')
@@ -51,13 +56,19 @@ def reAward(fname):
 ##(/5) Task 3: CREATE code that will open a file and extract all the phone numbers 
 
 def rePhone(fname):
-  #open file
-  #loop through the file
-  #extract the specific phone numbers regex
+  #open file X
+  #loop through the file X
+  #extract the specific phone numbers regex X
   #if the length of the extraction is not empty
   #print the phone number
-  pass
+  fhand= open(fname, "r")
 
+  for line in fhand:
+    extr = re.findall("^..:\s(\S*)", line)
+    if len(extr) :
+      print (extr)
+
+rePhone("rural-staff.txt")
 '''### Task 3 results
 >rePhone('rural-staff.txt')
 ['902-368-6905']
