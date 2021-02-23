@@ -15,11 +15,10 @@ def reEmail(fname):
   global count
   fhand = open(fname,'r')
   for line in fhand:
-    extr = re.findall("^^.*@e|gd|od|v\.pe\.ca",line)
+    extr = re.findall(".*@\S\S\S\S\S\S\S\S\S",line)
     if len(extr): 
       print(extr)
       count +=1
-        #"^.*@edu\.pe\.ca"
   print("There were ", count, "email adresses found.")
 
 reEmail("rural-staff.txt")
